@@ -1,9 +1,11 @@
+
 const form = document.querySelector("form");
 const button = form.querySelector("button");
-const errorDiv = form.querySelectorAll(".error");
 
-button.addEventListener("click", function(event) {
+
+button.addEventListener("click", function(event){
     event.preventDefault();
+
 
     /*first name*/
 
@@ -11,11 +13,13 @@ button.addEventListener("click", function(event) {
     const stringValue = inputField.value;
     const stringLength = stringValue.length;
 
+    const errorFirstName = document.getElementById("error-firstname");
+    
+
     if (stringLength >= 2) {
-        errorDiv.innerText = stringValue + "valid!";
-    }
-    else {
-        errorDiv.innerText = stringValue + "not valid";
+        errorFirstName.innerText = "";
+    } else {  
+        errorFirstName.innerHTML = "Please enter at least two letters";
     }
 
     /*email*/
@@ -24,22 +28,43 @@ button.addEventListener("click", function(event) {
     const stringValueEmail = inputFieldMail.value;
     const stringLengthEmail = stringValueEmail.length;
 
-    if (stringLengthEmail = stringValueEmail.includes("@")) {
-        errorDiv.innerText = stringValue + "valid!";
-    }
-    else {
-        errorDiv.innerText = stringValueEmail + "not valid";
+    const errorEmail = document.getElementById("error-email");
+
+    if (stringLengthEmail >= 6 && stringValueEmail.includes("@")) {
+        errorEmail.innerText = "";
+    } else {
+        errorEmail.innerText = "not valid";
     }
 
     /*password */
+    
     const inputFieldPassword = form.querySelector("#password");
     const stringValuePassword = inputFieldPassword.value;
     const stringLengthPassword = stringValuePassword.length;
 
-    if (stringLengthPassword >= 6 && stringValuePassword) {
-        errorDiv.innerText = stringValuePassword + "valid!";
+    const errorPassword = document.getElementById("error-password");
+
+    if (stringLengthPassword >= 6) {
+        errorPassword.innerText = "";
+    } else {
+        errorPassword.innerText = "Please enter at least 6 characters";
     }
-    else {
-        errorDiv.innerText = stringLengthPassword + "not valid!";
+
+    /*confirm password*/
+
+    const inputFieldPassword2 = form.querySelector("#password-confirm");
+    const stringValuePassword2 = inputFieldPassword2.value;
+    const stringLengthPassword2 = stringValuePassword2.length;
+
+    const errorPassword2 = document.getElementById("error-confirm-password");
+
+    if (stringLengthPassword2 === stringLengthPassword2) {
+        errorPassword2.innerText = "";
+        alert("working");
+
+    } else if (stringLengthPassword2 !== stringLengthPassword2){
+        errorPassword2.innerText = "Not matching!";
+        alert("not working");
     }
+
 });
