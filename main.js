@@ -52,16 +52,16 @@ button.addEventListener("click", function(event){
 
     /*confirm password*/
 
-    const inputFieldPassword2 = form.querySelector("#password-confirm");
-    const stringValuePassword2 = inputFieldPassword2.value;
-    const stringLengthPassword2 = stringValuePassword2.length;
+    const inputFieldPasswordConfirm = form.querySelector("#password-confirm");
+    const stringValuePasswordConfirm = inputFieldPasswordConfirm.value;
+    const stringLengthPasswordConfirm = stringValuePasswordConfirm.length;
 
-    const errorPassword2 = document.getElementById("error-confirm-password");
+    const errorPasswordConfirm = document.getElementById("error-confirm-password");
 
-    if (stringLengthPassword === stringLengthPassword2 && stringValuePassword === stringValuePassword2) {
-        errorPassword2.innerText = "";
+    if (stringLengthPassword === stringLengthPasswordConfirm && stringValuePassword === stringValuePasswordConfirm) {
+        errorPasswordConfirm.innerText = "";
     } else {
-        errorPassword2.innerText = "Not matching!";
+        errorPasswordConfirm.innerText = "Not matching!";
     }
 
 });
