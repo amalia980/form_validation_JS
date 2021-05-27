@@ -58,13 +58,10 @@ button.addEventListener("click", function(event){
 
     const errorPassword2 = document.getElementById("error-confirm-password");
 
-    if (stringLengthPassword2 === stringLengthPassword2) {
+    if (stringLengthPassword === stringLengthPassword2 && stringValuePassword === stringValuePassword2) {
         errorPassword2.innerText = "";
-        alert("working");
-
-    } else if (stringLengthPassword2 !== stringLengthPassword2){
+    } else {
         errorPassword2.innerText = "Not matching!";
-        alert("not working");
     }
 
 });
